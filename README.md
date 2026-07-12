@@ -3,7 +3,11 @@
 EcoSphere is a public-private enterprise ESG (Environmental, Social, and Governance) compliance registry and performance platform. It transitions organizations from error-prone manual spreadsheets to real-time, automated sustainability intelligence integrated with MongoDB database cores.
 
 ---
+## Demo Credentials
 
+| Role | Email | Password |
+|------|-------|----------|
+| Employee | dave@ecosphere.io | Employee@123 |
 ##  System Architecture & Data Flow
 
 The following flowchart illustrates the public-private partnership ESG data pipeline, mapping how client events (such as carbon inputs or CSR volunteer logging) flow through our FastAPI routers, operational services, scoring models, and down to the MongoDB database and file storage subsystems:
