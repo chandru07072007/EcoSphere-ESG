@@ -21,12 +21,12 @@ services:
       - key: FRONTEND_URL
         value: https://ecosphere-frontend.onrender.com
 
-staticSites:
   # ── FRONTEND STATIC SITE ─────────────────────────────────────────────────────
-  - name: ecosphere-frontend
+  - type: static
+    name: ecosphere-frontend
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
         value: https://ecosphere-backend.onrender.com
