@@ -4,7 +4,7 @@ EcoSphere is a public-private enterprise ESG (Environmental, Social, and Governa
 
 ---
 
-## 🏛️ System Architecture & Data Flow
+##  System Architecture & Data Flow
 
 The following flowchart illustrates the public-private partnership ESG data pipeline, mapping how client events (such as carbon inputs or CSR volunteer logging) flow through our FastAPI routers, operational services, scoring models, and down to the MongoDB database and file storage subsystems:
 
@@ -57,7 +57,7 @@ graph TD
     AuthRoute --> DB
 ```
 
-### 🔁 Data Flow Breakdown
+### Data Flow Breakdown
 1. **User Request & Interceptors**: React pages pass requests through an Axios interceptor that automatically attaches the user's JWT bearer token.
 2. **FastAPI Gateway**: The backend authenticates the token. Requests targeting compliance logs, audits, or reward redemptions are routed to the corresponding controllers.
 3. **Calculation & Gamification Engines**:
@@ -68,7 +68,7 @@ graph TD
 
 ---
 
-### 📂 Directory Layout
+###  Directory Layout
 
 The project is structured as a decoupled monorepo:
 
@@ -103,7 +103,7 @@ The project is structured as a decoupled monorepo:
 
 ---
 
-## ⚡ Key Platform Features
+##  Key Platform Features
 
 ### 🍀 1. Environmental (E) — Carbon Intelligence
 * **Auto-Emission Calculations**: Automatically converts operational quantities (miles driven, kWh consumed) to CO₂e (kg) upon transaction entry using active emission coefficients.
@@ -128,7 +128,7 @@ The project is structured as a decoupled monorepo:
 
 ---
 
-## ⚙️ Local Configuration Setup
+##  Local Configuration Setup
 
 ### 1. Environment File (`.env`)
 Create a `.env` file in the `backend/` and workspace root directories using this template:
@@ -181,4 +181,351 @@ npm run dev
 
 ---
 
+- # EcoSphere – ESG Management Platform Architecture
 
+> **GitHub Documentation**
+
+## Overview
+
+EcoSphere is an AI-powered ESG (Environmental, Social and Governance) Management Platform that enables organizations to collect operational data, calculate ESG scores, monitor sustainability performance, automate reporting, and generate AI-driven insights.
+
+The platform follows a layered architecture consisting of:
+
+1. User Layer
+2. Presentation Layer
+3. API Gateway
+4. Business Services
+5. AI & Analytics
+6. ESG Score Engine
+7. MongoDB Database
+8. External Integrations
+
+---
+
+# 1. User Layer
+
+## Purpose
+The User Layer is the entry point of the application.
+
+### Users
+- Employees
+- Managers
+- ESG Officers
+- HR
+- Auditors
+- Admin
+
+### Workflow
+
+```mermaid
+flowchart LR
+Employee --> Dashboard
+Manager --> Dashboard
+ESG["ESG Officer"] --> Dashboard
+HR --> Dashboard
+Auditor --> Dashboard
+Admin --> Dashboard
+Dashboard["React Dashboard"] --> API["FastAPI Backend"]
+```
+
+**Explanation**
+
+Users access the React dashboard. Every request is forwarded to the FastAPI backend for authentication and processing.
+
+---
+
+# 2. Presentation Layer
+
+**Technology**
+
+- React
+- TypeScript
+- Tailwind CSS
+
+### Workflow
+
+```mermaid
+flowchart LR
+Login --> Dashboard
+Dashboard --> Forms
+Dashboard --> Reports
+Dashboard --> Leaderboard
+Dashboard --> Analytics
+Dashboard --> API["FastAPI REST API"]
+```
+
+The frontend provides dashboards, forms, analytics, reports, notifications and communicates with the backend through REST APIs.
+
+---
+
+# 3. API Gateway
+
+```mermaid
+flowchart LR
+React --> API["FastAPI"]
+API --> JWT
+JWT --> Services["Business Services"]
+Services --> API
+API --> React
+```
+
+### Responsibilities
+
+- Authentication
+- Authorization
+- Validation
+- Routing
+- Business Logic
+- Response Generation
+
+---
+
+# 4. Business Services
+
+```mermaid
+flowchart TB
+
+API --> Authentication
+API --> UserManagement
+API --> ESGMasterData
+API --> CarbonAccounting
+API --> CSRManagement
+API --> ChallengeManagement
+API --> XPBadgeEngine
+API --> Governance
+API --> ESGScoreEngine
+API --> ReportService
+API --> NotificationService
+API --> FileService
+API --> AIAnalytics
+```
+
+Each service is independent and responsible for one business capability.
+
+---
+
+# 5. Carbon Accounting Flow
+
+```mermaid
+flowchart LR
+
+ERP --> Purchase
+ERP --> Manufacturing
+ERP --> Fleet
+ERP --> Expense
+
+Purchase --> Carbon
+Manufacturing --> Carbon
+Fleet --> Carbon
+Expense --> Carbon
+
+Carbon["Carbon Accounting"]
+
+Carbon --> Transactions
+
+Transactions --> EnvironmentalScore
+```
+
+### Explanation
+
+ERP operational data is converted into carbon emissions.
+
+The calculated emissions are stored and contribute to the Environmental ESG Score.
+
+---
+
+# 6. CSR & Gamification Flow
+
+```mermaid
+flowchart LR
+
+CSR --> Participation
+Participation --> Challenge
+Challenge --> XP
+XP --> Badge
+Badge --> Reward
+Reward --> SocialScore
+```
+
+Employees participate in CSR programs, earn XP and badges, redeem rewards and improve the Social Score.
+
+---
+
+# 7. Governance Flow
+
+```mermaid
+flowchart LR
+
+Policies --> PolicyAcknowledgement
+PolicyAcknowledgement --> Audit
+Audit --> ComplianceIssue
+ComplianceIssue --> GovernanceScore
+```
+
+Governance ensures policy compliance through acknowledgements, audits and issue tracking.
+
+---
+
+# 8. ESG Score Engine
+
+```mermaid
+flowchart TB
+
+Environmental["Environmental (40%)"]
+Social["Social (30%)"]
+Governance["Governance (30%)"]
+
+Environmental --> Department
+Social --> Department
+Governance --> Department
+
+Department["Department ESG Score"]
+
+Department --> Organization["Organization ESG Score"]
+```
+
+The ESG Score Engine combines Environmental, Social and Governance scores into department and organization-level ESG scores.
+
+---
+
+# 9. AI & Analytics Layer
+
+```mermaid
+flowchart LR
+
+MongoDB --> CarbonPrediction
+MongoDB --> TrendAnalysis
+MongoDB --> RiskPrediction
+MongoDB --> Forecasting
+MongoDB --> Recommendation
+MongoDB --> ESGAssistant
+```
+
+### AI Features
+
+- Carbon Prediction
+- ESG Trend Analysis
+- KPI Forecasting
+- Compliance Risk Prediction
+- Sustainability Recommendation
+- AI ESG Chat Assistant
+
+---
+
+# 10. MongoDB Database
+
+```mermaid
+flowchart TB
+
+BusinessServices --> MongoDB[(MongoDB Atlas)]
+
+MongoDB --> MasterCollections
+MongoDB --> TransactionCollections
+
+MasterCollections --> Users
+MasterCollections --> Departments
+MasterCollections --> Policies
+MasterCollections --> Rewards
+
+TransactionCollections --> CarbonTransactions
+TransactionCollections --> CSRActivities
+TransactionCollections --> Audits
+TransactionCollections --> ESGScores
+TransactionCollections --> Notifications
+```
+
+### Master Collections
+
+- Users
+- Departments
+- Categories
+- Emission Factors
+- Goals
+- Policies
+- Rewards
+- Badges
+
+### Transaction Collections
+
+- Carbon Transactions
+- CSR Activities
+- Employee Participation
+- Challenges
+- Audits
+- ESG Scores
+- Notifications
+
+---
+
+# 11. External Integrations
+
+```mermaid
+flowchart LR
+
+ERP --> CarbonAccounting
+HRMS --> UserManagement
+AWS["AWS S3"] --> FileService
+Email --> NotificationService
+```
+
+### Integrations
+
+- ERP
+- HRMS
+- AWS S3
+- SMTP Email
+
+---
+
+# 12. End-to-End Workflow
+
+```mermaid
+flowchart LR
+
+Users --> React
+React --> FastAPI
+FastAPI --> BusinessServices
+BusinessServices --> MongoDB
+MongoDB --> AI
+AI --> ESGScoreEngine
+ESGScoreEngine --> Dashboard
+ESGScoreEngine --> Reports
+ESGScoreEngine --> Analytics
+```
+
+---
+
+# Technology Stack
+
+| Layer | Technology |
+|------|------------|
+| Frontend | React + TypeScript + Tailwind CSS |
+| Backend | FastAPI |
+| Authentication | JWT |
+| Database | MongoDB Atlas |
+| Cache | Redis |
+| Storage | AWS S3 |
+| Reports | Pandas + OpenPyXL + ReportLab |
+| Notifications | Firebase + SMTP |
+| Deployment | Docker + Nginx + AWS |
+
+---
+
+# Advantages
+
+- Modular Microservice Architecture
+- Scalable FastAPI Backend
+- Flexible MongoDB Database
+- AI-powered ESG Analytics
+- Secure JWT Authentication
+- Automatic ESG Score Calculation
+- ERP & HRMS Integration
+- Cloud-ready Deployment
+- Real-time Dashboards
+- Easy Future Expansion
+
+---
+
+# Conclusion
+
+EcoSphere integrates operational systems, ESG workflows, AI analytics and MongoDB into a single platform that helps organizations measure, monitor and improve their Environmental, Social and Governance performance through automated data collection, intelligent scoring and real-time dashboards
