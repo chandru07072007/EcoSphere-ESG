@@ -5,9 +5,10 @@ EcoSphere is a public-private enterprise ESG (Environmental, Social, and Governa
 ---
 ## Demo Credentials
 
-| Role | Email | Password |
-|------|-------|----------|
-| Employee | dave@ecosphere.io | Employee@123 |
+> Click below to request demo credentials.
+
+**[📧 Request Demo Credentials](mailto:chandrupalanisamyaids@gmail.com?subject=EcoSphere%20Demo%20Credentials)**
+
 ##  System Architecture & Data Flow
 
 The following flowchart illustrates the public-private partnership ESG data pipeline, mapping how client events (such as carbon inputs or CSR volunteer logging) flow through our FastAPI routers, operational services, scoring models, and down to the MongoDB database and file storage subsystems:
