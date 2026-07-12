@@ -22,9 +22,8 @@ services:
         value: https://ecosphere-frontend.onrender.com # Change to your actual frontend Render URL
 
   # ── FRONTEND STATIC SITE ─────────────────────────────────────────────────────
-  - type: web
+  - type: static
     name: ecosphere-frontend
-    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
     publishDir: dist
