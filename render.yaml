@@ -19,17 +19,18 @@ services:
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
         value: "1440"
       - key: FRONTEND_URL
-        value: https://ecosphere-frontend.onrender.com # Change to your actual frontend Render URL
+        value: https://ecosphere-frontend.onrender.com
 
   # ── FRONTEND STATIC SITE ─────────────────────────────────────────────────────
-  - type: static
+  - type: web
     name: ecosphere-frontend
+    runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishDir: dist
+    staticPublishDir: dist
     envVars:
       - key: VITE_API_URL
-        value: https://ecosphere-backend.onrender.com # Change to your actual backend Render URL
+        value: https://ecosphere-backend.onrender.com
     routes:
       # Rewrite all routes to index.html for Single Page Application (SPA) routing
       - type: rewrite
