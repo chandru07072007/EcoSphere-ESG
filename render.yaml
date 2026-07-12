@@ -27,7 +27,7 @@ services:
     runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishPath: dist
+    publishDir: dist
     envVars:
       - key: VITE_API_URL
         value: https://ecosphere-backend.onrender.com # Change to your actual backend Render URL
