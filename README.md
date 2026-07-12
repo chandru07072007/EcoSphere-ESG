@@ -3,11 +3,8 @@
 EcoSphere is a public-private enterprise ESG (Environmental, Social, and Governance) compliance registry and performance platform. It transitions organizations from error-prone manual spreadsheets to real-time, automated sustainability intelligence integrated with MongoDB database cores.
 
 ---
-## Demo Credentials
 
-> Click below to request demo credentials.
-
-**[📧 Request Demo Credentials](mailto:chandrupalanisamyaids@gmail.com?subject=EcoSphere%20Demo%20Credentials)**
+[![Demo Credentials](https://img.shields.io/badge/Demo%20Credentials-Request-blue?style=for-the-badge)](mailto:chandrupalanisamyaids@gmail.com?subject=EcoSphere%20Demo%20Credentials&body=Hello%20Chandru,%0A%0AI%20would%20like%20to%20request%20the%20EcoSphere%20demo%20credentials.%0A%0AThank%20you.)
 
 ##  System Architecture & Data Flow
 
