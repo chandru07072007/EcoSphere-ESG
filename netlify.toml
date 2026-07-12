@@ -1,0 +1,19 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Netlify Configuration File for EcoSphere Frontend
+# ─────────────────────────────────────────────────────────────────────────────
+
+[build]
+  # Build from the frontend subdirectory
+  base = "frontend"
+  publish = "dist"
+  command = "npm run build"
+
+# Configure environment variables in Netlify Dashboard:
+# VITE_API_URL = https://your-backend-api-url.onrender.com
+
+[[redirects]]
+  # Redirect all routes to index.html for Single Page Application (SPA) routing
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = false
